@@ -8,6 +8,7 @@
         font-family: "Arial", sans-serif;
         background-color: #f4f4f4;
         text-align: center;
+        font-size: 30px;
       }
       select,
       button {
@@ -19,7 +20,18 @@
         margin-top: 20px;
         padding: 15px;
         border: 1px solid #ddd;
-        display: block; /* This ensures that the output is on a new line */
+        display: block;
+        /* Thi
+      }
+        font-size: 30px;s ensures that the output is on a new line */
+      }
+
+      #selectedVowel {
+        margin-top: 20px;
+        padding: 15px;
+        border: 1px solid #ddd;
+        display: block;
+        font-size: 50px;
       }
     </style>
   </head>
@@ -46,6 +58,7 @@
       <option value="oo">oo</option>
     </select>
 
+    <br />
     <button onclick="convertVowel()">Convert</button>
     <div id="output"></div>
 
@@ -100,11 +113,13 @@
 
         if (output !== "Please select a vowel.") {
           output =
-            "Remember to start with a relaxed falsetto tone and then crescendo with the following vowel combo:<br><br>" +
+            "to get to the initial feeling...<br>start with a relaxed falsetto tone made twangy with the bright vowel and then crescendo with the darker vowel to add weight - using the following vowel combo:<br>" +
             output;
         }
 
-        outputElement.innerHTML = output; // use innerHTML instead of textContent to render HTML tags
+        outputElement.innerHTML =
+          output +
+          " <br><i>or if you're belting just do one part,</i> and over time learn how much of each vowel the combo you'll need to sound how you want to <br>"; // use innerHTML instead of textContent to render HTML tags
       }
     </script>
   </body>
