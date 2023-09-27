@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Vowel Converter</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        background-color: #f4f4f4;
+        text-align: center;
+      }
+      select,
+      button {
+        margin: 10px;
+        padding: 10px;
+        font-size: 16px;
+      }
+      #output {
+        margin-top: 20px;
+        padding: 15px;
+        border: 1px solid #ddd;
+        display: block; /* This ensures that the output is on a new line */
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Vowel Converter</h1>
+    <label>Select Bright Vowel:</label>
+    <select id="brightVowel">
+      <option value="">--Select--</option>
+      <option value="Aa">Aa</option>
+      <option value="eh">eh</option>
+      <option value="ih">ih</option>
+      <option value="ay">ay</option>
+      <option value="ee">ee</option>
+      <option value="iy">iy</option>
+    </select>
+
+    <label>Select Dark Vowel:</label>
+    <select id="darkVowel">
+      <option value="">--Select--</option>
+      <option value="ah">ah</option>
+      <option value="uh">uh</option>
+      <option value="oe">oe</option>
+      <option value="oh">oh</option>
+      <option value="oo">oo</option>
+    </select>
+
+    <button onclick="convertVowel()">Convert</button>
+    <div id="output"></div>
+
+    <script>
+      function convertVowel() {
+        let brightVowelElement = document.getElementById("brightVowel");
+        let darkVowelElement = document.getElementById("darkVowel");
+        let outputElement = document.getElementById("output");
+
+        let brightVowel = brightVowelElement.value;
+        let darkVowel = darkVowelElement.value;
+        let selectedVowel = brightVowel || darkVowel;
+        let output = "";
+
+        switch (selectedVowel) {
+          case "Aa":
+            output = "ah-eh";
+            break;
+          case "eh":
+            output = "Aa-ih";
+            break;
+          case "ih":
+            output = "eh-ay";
+            break;
+          case "ay":
+            output = "ih-ee";
+            break;
+          case "ee":
+            output = "ay-oo";
+            break;
+          case "iy":
+            output = "uh-Aa";
+            break;
+          case "ah":
+            output = "uh-Aa";
+            break;
+          case "uh":
+            output = "oe-ah";
+            break;
+          case "oe":
+            output = "oh-uh";
+            break;
+          case "oh":
+            output = "oo-oe";
+            break;
+          case "oo":
+            output = "ee-oh";
+            break;
+          default:
+            output = "Please select a vowel.";
+        }
+
+        if (output !== "Please select a vowel.") {
+          output =
+            "Remember to start with a relaxed falsetto tone and then crescendo with the following vowel combo:<br><br>" +
+            output;
+        }
+
+        outputElement.innerHTML = output; // use innerHTML instead of textContent to render HTML tags
+      }
+    </script>
+  </body>
+</html>
